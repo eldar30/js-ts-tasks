@@ -33,7 +33,7 @@ class User {
     return `My name is ${this.name}, I'm ${this.#age}`;
   }
 
-  celebrateBirthday(age) {
+  celebrateBirthday() {
     this.#age++;
   }
 }
@@ -92,7 +92,7 @@ module.exports.findUsersByAge = function (users, age) {
  */
 module.exports.createUsersSortFn = function (TestUtils) {
   return function Sort(arr) {
-    return;
+    return arr.sort(TestUtils.sortComparatorByAge);
   };
 };
 
@@ -102,5 +102,10 @@ module.exports.createUsersSortFn = function (TestUtils) {
  * @return {Array<User>}
  */
 module.exports.celebrate = function (users) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  for (let i = 0; i < users.length; i++) {
+    if (i % 2 !== 0) {
+      users[i].celebrateBirthday;
+    }
+  }
+  return users;
 };
